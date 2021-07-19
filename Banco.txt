@@ -1,0 +1,65 @@
+create database BancoSUS
+create table TBDoutor
+(
+ID int identity primary key,
+Nome varchar (200),
+Email varchar (200),
+Senha varchar (200),
+CPF varchar (200) unique,
+Telefone varchar (200),
+Telefone2 varchar (200),
+Nascimento Date,
+Cidade varchar (200),
+UF_Cidade varchar (200),
+Endereco varchar (200),
+CRM varchar (200),
+CRM_UF varchar (200),
+Especializacao varchar (200)
+)
+create table TBAtendente
+(
+ID int identity primary key,
+Nome varchar (200),
+Email varchar (200),
+Senha varchar (200),
+CPF varchar (200) unique,
+Telefone varchar (200),
+Telefone2 varchar (200),
+Nascimento Date,
+Cidade varchar (200),
+UF_Cidade varchar (200),
+Endereco varchar (200),
+CNH varchar (200),
+CNH_Letra varchar (200),
+Adicionais varchar (200)
+)
+create table TBPacientes
+(
+ID int identity primary key,
+Nome varchar (200),
+Email varchar (200),
+Senha varchar (200),
+CPF varchar (200) unique,
+Telefone varchar (200),
+Telefone2 varchar (200),
+Nascimento Date,
+Proffisao varchar (200),
+Cidade varchar (200),
+UF_Cidade varchar (200),
+Endereco varchar (200),
+ContatoSoS varchar (200),
+Telefone_SOS varchar (200),
+Telefone2_SOS varchar (200)
+)
+create table TBAgendamento
+(
+ID int identity primary key,
+Dia_Consulta Date,
+Horario int,
+Status_Consulta varchar (200),
+Resumo varchar (200),
+FK_Doutor int foreign key references TBDoutor(ID),
+FK_Paciente int foreign key references TBPacientes(ID),
+Consulta varchar (200),
+Medicacao varchar (200)
+)
